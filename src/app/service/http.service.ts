@@ -9,8 +9,8 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  readJson(): Observable<any[]> {
-    return this.http.get<any[]>('/echo/get/json');
+  readJson(link: string): Observable<any> {
+    return this.http.get<any>(link);
   }
 
 }

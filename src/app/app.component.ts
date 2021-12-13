@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { HttpService } from './service/http.service';
 
 @Component({
@@ -14,6 +15,6 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpService) { }
 
   ngOnInit() {
-    this.http.readJson().forEach(data => this.content = [data, ...this.content]);
+    this.http.readJson(environment.apiLink).subscribe(data => this.content = [data, ...this.content]);
   }
 }
